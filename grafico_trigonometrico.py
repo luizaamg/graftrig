@@ -4,11 +4,11 @@ import matplotlib.pyplot as plt
 def plotar_funcao_trigonometrica():
     print("-" * 50)
     print("Gerador de Gráficos Trigonométricos")
-    print("Formato: f(x) = A.sen(bx + c) + d  ou  g(x) = A.cos(bx + c) + d")
+    print("Formato: f(x) = a.sen(bx + c) + d  ou  g(x) = a.cos(bx + c) + d")
     print("-" * 50)
     
     try:
-        A = float(input("Digite o valor da amplitude (A): "))
+        a = float(input("Digite o valor da amplitude (a): "))
         b = float(input("Digite o valor do controle da frequência (b): "))
         c = float(input("Digite o valor do deslocamento horizontal (c): "))
         d = float(input("Digite o valor do deslocamento vertical (d): "))
@@ -18,17 +18,16 @@ def plotar_funcao_trigonometrica():
         if funcao not in ['sen', 'cos']:
             print("Erro: Função inválida! Por favor, escolha 'sen' ou 'cos'.")
             return
-        # criando um intervalo para o eixo X de -2π a 2π com 1000 pontos
+        
         x = np.linspace(-2 * np.pi, 2 * np.pi, 1000)
         
-        # calculo do eixo Y dependendo da função escolhida
         if funcao == 'sen':
-            y = A * np.sin(b * x + c) + d
-            equacao_str = f"f(x) = {A} . sen({b}x + {c}) + {d}"
+            y = a * np.sin(b * x + c) + d
+            equacao_str = f"f(x) = {a} . sen({b}x + {c}) + {d}"
             cor = 'blue'
         else:
-            y = A * np.cos(b * x + c) + d
-            equacao_str = f"g(x) = {A} . cos({b}x + {c}) + {d}"
+            y = a * np.cos(b * x + c) + d
+            equacao_str = f"g(x) = {a} . cos({b}x + {c}) + {d}"
             cor = 'red'
 
         plt.figure(figsize=(10, 6)) 
@@ -50,7 +49,7 @@ def plotar_funcao_trigonometrica():
         plt.show()
         
     except ValueError:
-        print("Erro: Por favor, digite apenas números válidos para os valores de A, b, c e d.")
+        print("Erro: Por favor, digite apenas números válidos para os valores de a, b, c e d.")
 
 if __name__ == "__main__":
     plotar_funcao_trigonometrica()
